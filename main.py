@@ -1,6 +1,7 @@
 import argparse
 import init
-import add
+import stage
+import branch
 
 parser = argparse.ArgumentParser(description="A git remake done by mineblocks")
 
@@ -8,16 +9,20 @@ parser = argparse.ArgumentParser(description="Command dispatcher")
 subparsers = parser.add_subparsers(dest='command', required=True)
 
 init_parser = subparsers.add_parser('init', help='Initialize the repository')
+init_parser.add_argument('--reinit', action='store_true', help='Re-initialize repository')
 
-add_parser = subparsers.add_parser('add', help='Add items to the staging area')
-add_parser.add_argument('values', nargs="*", help='Files')
+stage_parser = subparsers.add_parser('stage', help='Deals with staging area')
+stage_parser.add_argument('-a', nargs="*", help='Adds files to the staging area')
+
+
+branch_parser = subparsers.add_parser('branch', help='Deals with branches')
+branch_parser.add_argument('-c', type=str, help='Changes the selected branch')
 
 args = parser.parse_args()
 
-
-branch = None
-
 if args.command == 'init':
-    init.init()
-elif args.command == 'add':
-    add.add(args.values)
+    init.init(args)
+elif args.command == 'stage':
+    stage.stage(args)
+elif args.command == 'branch':
+    branch.branch(args)
