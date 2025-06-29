@@ -10,6 +10,8 @@ subparsers = parser.add_subparsers(dest='command', required=True)
 
 init_parser = subparsers.add_parser('init', help='Initialize the repository')
 init_parser.add_argument('--reinit', action='store_true', help='Re-initialize repository')
+init_parser.add_argument('-d', action='store_true', help='Re-initialize repository')
+init_parser.add_argument('-i', action='store_true', help='Re-initialize repository')
 
 stage_parser = subparsers.add_parser('stage', help='Deals with staging area')
 stage_parser.add_argument('-a', nargs="*", help='Adds files to the staging area')

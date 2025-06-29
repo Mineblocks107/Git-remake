@@ -2,10 +2,10 @@ import os
 import shutil
 import error
 
-def init(args):
+def __init(args):
     try:
         if args.reinit == True:
-            shutil.rmtree("./__gitrem/")
+            rem()
         os.mkdir("./__gitrem/")
         open("./__gitrem/__config.gitrem", "w").write("")
         os.mkdir("./__gitrem/__branch/")
@@ -18,3 +18,13 @@ def init(args):
         error.RepoAlreadyInitialized()
     # except:
     #     print("Unknown error happened")
+
+def rem():
+    shutil.rmtree("./__gitrem/")
+
+
+def init(args):
+    if args.d:
+        rem()
+    if args.i:
+        __init(args)
