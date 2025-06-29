@@ -13,6 +13,7 @@ init_parser.add_argument('--reinit', action='store_true', help='Re-initialize re
 
 stage_parser = subparsers.add_parser('stage', help='Deals with staging area')
 stage_parser.add_argument('-a', nargs="*", help='Adds files to the staging area')
+stage_parser.add_argument('-r', nargs="*", help='Removes files from the staging area')
 
 
 branch_parser = subparsers.add_parser('branch', help='Deals with branches')
