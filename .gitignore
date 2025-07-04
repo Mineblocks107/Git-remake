@@ -3,3 +3,4 @@ __pycache__/
 __gitrem/
 *.test
 __gitremdebug
+__gitremtest
