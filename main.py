@@ -21,6 +21,8 @@ stage_parser.add_argument('-r', nargs="*", help='Removes files from the staging 
 branch_parser = subparsers.add_parser('branch', help='Deals with branches')
 branch_parser.add_argument('-c', type=str, help='Changes the selected branch')
 branch_parser.add_argument('-a', type=str, help='Adds the branch')
+branch_parser.add_argument('-d', action="store_true", help='Adds the branch')
+
 
 args = parser.parse_args()
 
