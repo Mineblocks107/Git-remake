@@ -8,8 +8,10 @@ def __init(args):
         if args.reinit == True:
             rem()
         os.mkdir("./__gitrem/")
-        branch.writeNewBranch("main")
+        os.mkdir("./__gitrem/__commits")
+        os.mkdir("./__gitrem/__staging")
         open("./__gitrem/__config.gitrem", "w").write("# __config.gitrem\nbranch = main")
+        branch.writeNewBranch("main")
         print("Initialized the repository.")
     except FileExistsError:
         error.RepoAlreadyInitialized()
@@ -18,6 +20,7 @@ def __init(args):
 
 def rem():
     shutil.rmtree("./__gitrem/")
+    print("Removed the repository.")
 
 
 def init(args):

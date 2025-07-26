@@ -12,6 +12,8 @@ def changeBranch(args):
             fWrite.write(i + "\n")
     except FileNotFoundError:
         error.RepoNotInitialized()
+    except Exception as e:
+        raise Exception(e)
 
 def readBranch():
     try:
@@ -22,8 +24,7 @@ def readBranch():
 
 def writeNewBranch(branch):
     branchpath = ".\\__gitrem\\" + extrafunc.pad_path(branch, "__branch")
-    os.makedirs(branchpath + "\\__commits\\", exist_ok=True)
-    os.makedirs(branchpath + "\\__stagingArea\\", exist_ok=True)
+    os.makedirs(branchpath)
     changeBranch(branch)
 
 def removeBranch(branch):
